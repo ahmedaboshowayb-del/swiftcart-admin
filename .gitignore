@@ -1,0 +1,40 @@
+# Firebase secrets — NEVER commit
+js/firebase-config.js
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+```
+
+---
+
+## STEP 4 — Create screenshots folder
+```
+swiftcart-admin/assets/screenshots/
+```
+
+Take screenshots of each page and save them as:
+```
+dashboard.png
+products.png
+orders.png
+users.png
+categories.png
+banners.png
+banner.png   ← the banner image
+```
+
+---
+
+## STEP 5 — Open PowerShell inside swiftcart-admin
+```
+1. Open File Explorer
+2. Navigate to your swiftcart-admin folder
+3. Click the address bar
+4. Type: powershell
+5. Press Enter

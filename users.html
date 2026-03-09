@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SwiftCart Admin — Users</title>
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div class="layout">
+  <div id="sidebarMount"></div>
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <h1>Users</h1>
+        <p>View all registered customers</p>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="card">
+        <div class="toolbar">
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search by name or email…"/>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Joined</th>
+                <th>Orders</th>
+              </tr>
+            </thead>
+            <tbody id="usersBody">
+              <tr><td colspan="5"><div class="spinner"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" src="js/users.js"></script>
+</body>
+</html>

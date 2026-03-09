@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SwiftCart Admin — Login</title>
+  <link rel="stylesheet" href="css/auth.css"/>
+</head>
+<body>
+
+<div class="bg-orbs">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<div class="auth-card">
+  <div class="auth-logo">
+    <div class="logo-icon">🛒</div>
+    <div class="logo-text">
+      <span><span style="color:#FF6B35">Swift</span>Cart</span>
+      <span>Admin Panel</span>
+    </div>
+  </div>
+
+  <h1 class="auth-title">Welcome back 👋</h1>
+  <p class="auth-subtitle">Sign in to manage your store</p>
+
+  <div class="error-msg" id="errorMsg">Invalid email or password.</div>
+
+  <form id="loginForm">
+    <div class="form-group">
+      <label>Email Address</label>
+      <div class="input-wrap">
+        <span class="icon">✉</span>
+        <input type="email" id="email" placeholder="admin@swiftcart.com" required/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <div class="input-wrap">
+        <span class="icon">🔒</span>
+        <input type="password" id="password" placeholder="••••••••" required/>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-login" id="loginBtn">
+      <span id="btnText">Sign In</span>
+    </button>
+  </form>
+</div>
+
+<script type="module">
+  import { auth } from './js/firebase-config.js';
+  import {
+    signInWithEmailAndPassword,
+    onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+  onAuthStateChanged(auth, user => {
+    if (user) window.location.href = 'dashboard.html';
+  });
+
+  document.getElementById('loginForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn     = document.getElementById('loginBtn');
+    const errMsg  = document.getElementById('errorMsg');
+    const email   = document.getElementById('email').value.trim();
+    const pass    = document.getElementById('password').value;
+
+    btn.classList.add('loading');
+    btn.innerHTML = '<span>Signing in…</span>';
+    errMsg.classList.remove('show');
+
+    try {
+      await signInWithEmailAndPassword(auth, email, pass);
+      window.location.href = 'dashboard.html';
+    } catch (err) {
+      errMsg.textContent =
+        err.code === 'auth/invalid-credential'
+          ? 'Invalid email or password.'
+          : err.message;
+      errMsg.classList.add('show');
+      btn.classList.remove('loading');
+      btn.innerHTML = '<span>Sign In</span>';
+    }
+  });
+</script>
+</body>
+</html>

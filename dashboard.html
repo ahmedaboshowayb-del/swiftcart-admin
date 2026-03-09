@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SwiftCart Admin — Dashboard</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="layout">
+  <div id="sidebarMount"></div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <h1>Dashboard</h1>
+        <p id="dateLabel">Loading...</p>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-btn">🔔<span class="notif-dot"></span></div>
+        <div class="topbar-btn">⚙️</div>
+      </div>
+    </div>
+
+    <div class="page-content">
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">💰</div>
+          <div class="stat-value" id="totalRevenue">—</div>
+          <div class="stat-label">Total Revenue</div>
+          <div class="stat-change up" id="revenueChange">↑ —</div>
+        </div>
+        <div class="stat-card" data-color="green">
+          <div class="stat-icon">🧾</div>
+          <div class="stat-value" id="totalOrders">—</div>
+          <div class="stat-label">Total Orders</div>
+          <div class="stat-change up" id="ordersChange">↑ —</div>
+        </div>
+        <div class="stat-card" data-color="blue">
+          <div class="stat-icon">👥</div>
+          <div class="stat-value" id="totalUsers">—</div>
+          <div class="stat-label">Total Users</div>
+          <div class="stat-change up">↑ Growing</div>
+        </div>
+        <div class="stat-card" data-color="yellow">
+          <div class="stat-icon">📦</div>
+          <div class="stat-value" id="totalProducts">—</div>
+          <div class="stat-label">Products</div>
+          <div class="stat-change up">↑ Active</div>
+        </div>
+      </div>
+
+<div class="grid-2" style="margin-bottom:24px">
+  <div class="card">
+    <div class="card-title">Revenue Overview <span>Last 7 days</span></div>
+    <div style="position:relative; height:260px;">
+      <canvas id="revenueChart"></canvas>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Orders by Status <span>All time</span></div>
+    <div style="position:relative; height:260px;">
+      <canvas id="statusChart"></canvas>
+    </div>
+  </div>
+</div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">
+            Recent Orders
+            <a href="orders.html" class="btn btn-outline btn-sm">View all</a>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="recentOrdersBody">
+                <tr><td colspan="4"><div class="spinner"></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            Top Products
+            <a href="products.html" class="btn btn-outline btn-sm">View all</a>
+          </div>
+          <div id="topProductsList">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

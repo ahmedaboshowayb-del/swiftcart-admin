@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SwiftCart Admin — Banners</title>
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div class="layout">
+  <div id="sidebarMount"></div>
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <h1>Banners</h1>
+        <p>Manage home screen promotional banners</p>
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-primary" id="addBannerBtn">＋ Add Banner</button>
+      </div>
+    </div>
+    <div class="page-content">
+
+      <div id="bannerGrid" style="display:grid;
+           grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+           gap:16px;margin-bottom:24px"></div>
+
+      <div class="card">
+        <div class="card-title">All Banners</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Preview</th>
+                <th>Title</th>
+                <th>Subtitle</th>
+                <th>Order</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="bannersBody">
+              <tr><td colspan="6"><div class="spinner"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="bannerModal">
+  <div class="modal" style="max-width:480px">
+    <div class="modal-header">
+      <div class="modal-title" id="bannerModalTitle">Add Banner</div>
+      <button class="modal-close" id="bannerModalClose">✕</button>
+    </div>
+    <div class="field">
+      <label>Title *</label>
+      <input type="text" id="bf_title" placeholder="Flash Sale Today!"/>
+    </div>
+    <div class="field">
+      <label>Subtitle</label>
+      <input type="text" id="bf_subtitle" placeholder="Up to 50% off on electronics"/>
+    </div>
+    <div class="field">
+      <label>Image URL *</label>
+      <input type="text" id="bf_image_url" placeholder="https://…"/>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Action (Category ID)</label>
+        <input type="text" id="bf_action" placeholder="electronics"/>
+      </div>
+      <div class="field">
+        <label>Display Order</label>
+        <input type="number" id="bf_order" placeholder="1"/>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" id="cancelBannerBtn">Cancel</button>
+      <button class="btn btn-primary" id="saveBannerBtn">Save Banner</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/banners.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SwiftCart Admin — Categories</title>
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div class="layout">
+  <div id="sidebarMount"></div>
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <h1>Categories</h1>
+        <p>Manage product categories</p>
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-primary" id="addCatBtn">＋ Add Category</button>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Icon</th>
+                <th>Name (EN)</th>
+                <th>Name (AR)</th>
+                <th>Products</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="catsBody">
+              <tr><td colspan="6"><div class="spinner"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="catModal">
+  <div class="modal" style="max-width:440px">
+    <div class="modal-header">
+      <div class="modal-title" id="catModalTitle">Add Category</div>
+      <button class="modal-close" id="catModalClose">✕</button>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Name (English) *</label>
+        <input type="text" id="cf_name" placeholder="Electronics"/>
+      </div>
+      <div class="field">
+        <label>Name (Arabic) *</label>
+        <input type="text" id="cf_name_ar" placeholder="الإلكترونيات" dir="rtl"/>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Icon (Emoji) *</label>
+        <input type="text" id="cf_icon" placeholder="📱"/>
+      </div>
+      <div class="field">
+        <label>Image URL</label>
+        <input type="text" id="cf_image_url" placeholder="https://…"/>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" id="cancelCatBtn">Cancel</button>
+      <button class="btn btn-primary" id="saveCatBtn">Save</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/categories.js"></script>
+</body>
+</html>

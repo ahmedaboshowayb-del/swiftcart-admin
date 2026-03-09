@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SwiftCart Admin — Products</title>
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div class="layout">
+  <div id="sidebarMount"></div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <h1>Products</h1>
+        <p>Manage your store inventory</p>
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-primary" id="addProductBtn">
+          ＋ Add Product
+        </button>
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="card">
+        <div class="toolbar">
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search products…"/>
+          </div>
+          <select class="filter-select" id="categoryFilter">
+            <option value="">All Categories</option>
+          </select>
+          <select class="filter-select" id="statusFilter">
+            <option value="">All Status</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Rating</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="productsBody">
+              <tr><td colspan="7"><div class="spinner"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="productModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">Add Product</div>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Product Name *</label>
+        <input type="text" id="f_name" placeholder="iPhone 15 Pro"/>
+      </div>
+      <div class="field">
+        <label>Brand *</label>
+        <input type="text" id="f_brand" placeholder="Apple"/>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Description *</label>
+      <textarea id="f_description" placeholder="Product description…"></textarea>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Price (SAR) *</label>
+        <input type="number" id="f_price" placeholder="999"/>
+      </div>
+      <div class="field">
+        <label>Discount Price (SAR)</label>
+        <input type="number" id="f_discount_price" placeholder="Leave empty if no discount"/>
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Stock Quantity *</label>
+        <input type="number" id="f_stock" placeholder="50"/>
+      </div>
+      <div class="field">
+        <label>Category *</label>
+        <select id="f_category">
+          <option value="">Select category</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Image URL (first image)</label>
+      <input type="text" id="f_image" placeholder="https://…"/>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Rating (0–5)</label>
+        <input type="number" id="f_rating" placeholder="4.5" min="0" max="5" step="0.1"/>
+      </div>
+      <div class="field">
+        <label>Review Count</label>
+        <input type="number" id="f_review_count" placeholder="0"/>
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+          <input type="checkbox" id="f_is_featured" style="width:auto"/>
+          Featured Product
+        </label>
+      </div>
+      <div class="field">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+          <input type="checkbox" id="f_is_new" style="width:auto"/>
+          New Arrival
+        </label>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-outline" id="cancelModalBtn">Cancel</button>
+      <button class="btn btn-primary" id="saveProductBtn">Save Product</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/products.js"></script>
+</body>
+</html>
